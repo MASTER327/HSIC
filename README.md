@@ -1,4 +1,4 @@
-# Adversarial Decoupling Domain Generalization Network for Cross-scene Hyperspectral Image Classification
+# Asymmetric Augmented and Gated Synthesis Network for Cross-scene Hyperspectral Image Classification
 
 <p align='center'>
   <img src='abstract_00.png' width="800px">
