@@ -5,8 +5,6 @@ from .discriminator import *
 import cv2
 from mtutils import min_max_normalize
 import random
-from .morph_layers2D_torch import *
-from network.style_hallucination import StyleHallucination
 
 from timm.layers import DropPath, to_2tuple, trunc_normal_
 import torch.fft
@@ -33,8 +31,8 @@ class SpaRandomization(nn.Module):
             x = (x - mean) / (var + self.eps).sqrt()
 
             idx_swap = torch.randperm(N)
-            alpha = torch.rand(N, 1, 1)  # 别注释，会改变初始化
-            mean = self.alpha * mean + (1 - self.alpha) * mean[idx_swap]  # 和固定成0.5相比，训练结果没有区别
+            alpha = torch.rand(N, 1, 1)  
+            mean = self.alpha * mean + (1 - self.alpha) * mean[idx_swap]  
             var = self.alpha * var + (1 - self.alpha) * var[idx_swap]
 
             x = x * (var + self.eps).sqrt() + mean
@@ -83,7 +81,6 @@ class Generator_double_branch_CBM2D(nn.Module):
 
         self.outS = nn.Conv2d(imdim, imdim, kernel_size=1, stride=1, padding=0)
 
-        # 2D空间随机化 消除卷积的局部归纳偏执 CrossBatch
         self.spaRandom = SpaRandomization(dim2, device=device)
 
         # self.SpaRandomization_CrossInC = SpaRandomization_CrossInC(imdim, device=device)  # ChannelShuffle
@@ -110,7 +107,7 @@ class Generator_double_branch_CBM2D(nn.Module):
         # s = self.perturbation(s)  # Channel Perturbation
         # s = self.speRandom(s)  # Spectral Random
 
-        s, idx_swap = self.spaRandom(s)  # 丰富S
+        s, idx_swap = self.spaRandom(s)  
 
         s = self.d_conv3(self.d_mp2(self.d_conv4(s)))
         x_s = torch.sigmoid(self.outS(s))
