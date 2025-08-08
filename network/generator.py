@@ -83,10 +83,6 @@ class Generator_double_branch_CBM2D(nn.Module):
 
         self.spaRandom = SpaRandomization(dim2, device=device)
 
-        # self.SpaRandomization_CrossInC = SpaRandomization_CrossInC(imdim, device=device)  # ChannelShuffle
-        # self.perturbation = Perturbation(imdim, device=device)
-        # self.speRandom = SpeRandomization_InternalSwap(imdim)
-
     def forward(self, x):
         in_size = x.size(0)
 
