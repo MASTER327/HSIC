@@ -1,4 +1,4 @@
-# Asymmetric Augmented and Gated Synthesis Network for Cross-scene Hyperspectral Image Classification
+# Asymmetric Disentanglement and Non-discrimination Joint Learning Network for Cross-Scene Hyperspectral Image Classification
 
 <p align='center'>
   <img src='abstract_00.png' width="800px">
