@@ -1,7 +1,7 @@
 # Asymmetric Disentanglement and Non-discrimination Joint Learning Network for Cross-Scene Hyperspectral Image Classification
 
 <p align='center'>
-  <img src='abstract_00.png' width="800px">
+  <img src='abstract_01.png' width="800px">
 </p>
 
 ## Abstract
