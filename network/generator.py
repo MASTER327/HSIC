@@ -46,7 +46,7 @@ class Generator_double_branch_CBM2D(nn.Module):
 
         self.patch_size = imsize[0]
 
-        # for R
+        # for Intrinsic capturing branch
         self.conv1 = nn.Conv2d(imdim, dim1, kernel_size=5, stride=1, padding=0)
         self.bn1 = nn.BatchNorm2d(dim1)
         self.relu = nn.ReLU(inplace=True)
@@ -64,7 +64,7 @@ class Generator_double_branch_CBM2D(nn.Module):
 
         self.outR = nn.Conv2d(imdim, imdim, kernel_size=1, stride=1, padding=0)
 
-        # for S
+        # for Variation capturing branch
         self.conv3 = nn.Conv2d(imdim, dim1, kernel_size=5, stride=1, padding=0)
         self.bn3 = nn.BatchNorm2d(dim1)
         self.relu = nn.ReLU(inplace=True)
@@ -81,6 +81,7 @@ class Generator_double_branch_CBM2D(nn.Module):
 
         self.outS = nn.Conv2d(imdim, imdim, kernel_size=1, stride=1, padding=0)
 
+        #  Asymmetric augmentation decoupling
         self.spaRandom = SpaRandomization(dim2, device=device)
 
     def forward(self, x):
