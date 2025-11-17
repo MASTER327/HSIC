@@ -74,6 +74,9 @@ python train.py --data_path ./datasets/HyRANK/ --source_name Dioni --target_name
 
 <p align='center'>
   <img src='abstract_01.png' width="800px">
+  <img src='config_H13.png' width="800px">
+	<img src='config_PU.png' width="800px">
+	<img src='config_Dioniioni.png' width="800px">
 </p>
 
 
