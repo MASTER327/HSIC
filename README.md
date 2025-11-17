@@ -72,4 +72,8 @@ HyRANK dataset:
 python train.py --data_path ./datasets/HyRANK/ --source_name Dioni --target_name Loukia --re_ratio 1 --max_epoch 50 --log_interval 5 --dim 512 --dim1 128 --dim2 128 --training_sample_ratio 0.8 --seed 233
 ```
 
+<p align='center'>
+  <img src='abstract_01.png' width="800px">
+</p>
+
 
